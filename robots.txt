@@ -1,0 +1,8 @@
+User-Agent: *
+Disallow: 
+Allow: /
+Disallow: /js
+Disallow: /php
+Disallow: /css
+
+Sitemap: http://senhordev.com/sitemap.xml
