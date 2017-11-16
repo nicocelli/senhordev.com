@@ -3,13 +3,13 @@
 /**
  * configure here
  */
-$from = 'IT WORKER <it@domain.com>';
-$sendTo = 'IT WORKER <it@domain.com>';
-$subject = 'New message from contact form';
+$from = 'Sr. Dev <jv.nicocelli@gmail.com>';
+$sendTo = 'Sr. Dev <jv.nicocelli@gmail.com>';
+$subject = 'Nova mensagem de';
 $fields = array('name' => 'Name', 'surname' => 'Surname', 'phone' => 'Phone', 'email' => 'Email', 'message' => 'Message');
 $htmlHeader = '';
 $htmlFooter = '';
-$okMessage = 'Contact form succesfully submitted. Thank you, I will get back to you soon!';
+$okMessage = 'Sua mensagem foi enviada. Obrigado pelo contato!';
 
 $htmlContent = '<h1>New message from contact form</h1>';
 
