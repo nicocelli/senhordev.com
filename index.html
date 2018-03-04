@@ -87,8 +87,8 @@ _________________________________________________________ -->
                     <li><a href="#services">Serviços</a>
                     </li>
                     <!--<li><a href="#testimonials">Testimonials</a></li>-->
-                    <li><a href="#references">Works</a>
-                    </li>
+                    <!--li><a href="#references">Works</a>
+                    </li>-->
                     <li><a href="#customers">Skills</a>
                     </li>
                     <li><a href="#contact">Contato</a>
@@ -187,23 +187,25 @@ _________________________________________________________ -->
                             <div class="icon"><i class="fa fa-search"></i>
                             </div>
                             <h3 class="heading">Análise</h3>
-                            <p>On on produce colonel pointed. Just four sold need over how any. In to september suspicion determine he prevailed admitting. On adapted an as affixed limited on. Giving cousin warmly things no spring mr be abroad. Relation
-                                breeding be as repeated strictly followed margaret. One gravity son brought shyness waiting regular led ham.</p>
+                            <p>Analisamos e documentamos a sua demanda utilizando as principais ferramentas do mercado. Entregamos para sua empresa detalhes do 
+                               funcionamento do software e da forma como será realizada a sua implementação.</p>
                         </div>
 
                         <div class="col-md-4" data-animate="fadeInUp">
                             <div class="icon"><i class="fa fa-html5"></i>
                             </div>
                             <h3 class="heading">Desenvolvimento</h3>
-                            <p>Manor we shall merit by chief wound no or would. Oh towards between subject passage sending mention or it. Sight happy do burst fruit to woody begin at. Assurance perpetual he in oh determine as.</p>
+                            <p>Desenvolvemos os sistemas utilizando as principais tecnologias de mercado, entregamos 
+                             softwares altamente dinâmicos e performáticos, sempre atualizados com as principais 
+                             tendências de mercado.</p>
                         </div>
 
                         <div class="col-md-4" data-animate="fadeInUp">
                             <div class="icon"><i class="fa fa-tachometer"></i> 
                             </div>
                             <h3 class="heading">Entrega</h3>
-                            <p>Rooms oh fully taken by worse do. Points afraid but may end law lasted. Was out laughter raptures returned outweigh. Luckily cheered colonel me do we attacks on highest enabled. Tried law yet style child. Bore of true of no
-                                be deal.</p>
+                            <p>Realizamos entregas iterativas e incrementais, adaptando cada entrega ao desejo do cliente, possibilitando a adaptação e 
+                                o ajuste perfeito ao desejo do cliente.</p>
                         </div>
 
                     </div>
@@ -348,7 +350,7 @@ _________________________________________________________ -->
 
         <!-- *** SHOWCASE ***
 _________________________________________________________ -->
-        <div class="section text-parallax parallax-image1" id="services">
+        <!--div class="section text-parallax parallax-image1" id="services">
             <div class="container">
                 <div class="row showcase">
                     <div class="col-md-3 col-sm-6" data-animate="fadeInUp">
@@ -388,18 +390,18 @@ _________________________________________________________ -->
                         </div>
                     </div>
                 </div>
-                <!-- /.row -->
+                <!-- /.row >
             </div>
-            <!-- /.container -->
+            <!-- /.container >
 
             <div class="dark-mask"></div>
 
-        </div>
+        </div-->
         <!-- /.section -->
 
         <!-- *** REFERENCES IMAGE ***
 _________________________________________________________ -->
-        <div class="section" id="references">
+        <!--div class="section" id="references">
             <div class="container">
                 <div class="col-sm-12">
 
@@ -435,7 +437,7 @@ _________________________________________________________ -->
                         <div id="detail-content"></div>
 
                     </div>
-                    <!-- Reference detail -->
+                    <!-- Reference detail >
 
                     <div id="references-masonry" data-animate="fadeInUp">
 
@@ -660,11 +662,11 @@ _________________________________________________________ -->
                     </div>
                     <!-- /#references-masonry -->
 
-                </div>
+                <!--/div>
                 <!-- /.12 -->
-            </div>
+            <!--/div>
             <!-- /.container -->
-        </div>
+        <!--/div>
         <!-- /.section -->
 
         <!-- *** REFERENCES END *** -->
@@ -745,7 +747,7 @@ _________________________________________________________ -->
                     <div class="row">
 
                         <div class="col-md-8 col-md-offset-2">
-                            <form id="contact-form" method="post" action="contact.php">
+                            <form method="post" action="contact.php">
 
                                 <div class="messages">
 
@@ -770,11 +772,10 @@ _________________________________________________________ -->
                                             <textarea name="message" class="form-control" placeholder="Mensagem *" rows="4" required="required"></textarea>
                                         </div>
                                         <div class="col-md-12 text-center">
-                                            <input type="submit" class="btn btn-primary btn-lg" value="Enviar">
+                                            <input type="submit" class="btn btn-primary btn-lg" value="Enviar" data-toggle="modal" data-target="#myModal">
                                         </div>
                                     </div>
                                 </div>
-
                             </form>
                         </div>
 
@@ -801,6 +802,24 @@ _________________________________________________________ -->
 
         <!-- *** FOOTER ***
 _________________________________________________________ -->
+        <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <button type="button" class="close" data-dismiss="modal" >&times;</button>
+                            <img style="margin-top:10px;" src="img/home.jpg" class="image img-circle img-responsive"  width="100" alt="This is me - IT worker">
+                        <h1 data-animate="fadeInDown">Obrigado !</h1>
+                        <h2 data-animate="fadeInUp">Agradecemos o seu contato.</h2>
+                        <h3>Att. Equipe Sr Dev</h3>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="section" id="footer">
             <div class="container">

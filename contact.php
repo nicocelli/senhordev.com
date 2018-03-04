@@ -1,77 +1,54 @@
 <?php
+$Nome		= $_POST["name"];	// Pega o valor do campo Nome
+$Fone		= $_POST["phone"];	// Pega o valor do campo Telefone
+$Email		= $_POST["email"];	// Pega o valor do campo Email
+$Mensagem	= $_POST["message"];	// Pega os valores do campo Mensagem
 
-/**
- * configure here
- */
-$from = 'Sr. Dev <jv.nicocelli@gmail.com>';
-$sendTo = 'Sr. Dev <jv.nicocelli@gmail.com>';
-$subject = 'Nova mensagem de';
-$fields = array('name' => 'Name', 'surname' => 'Surname', 'phone' => 'Phone', 'email' => 'Email', 'message' => 'Message');
-$htmlHeader = '';
-$htmlFooter = '';
-$okMessage = 'Sua mensagem foi enviada. Obrigado pelo contato!';
+// Variável que junta os valores acima e monta o corpo do email
 
-$htmlContent = '<h1>New message from contact form</h1>';
+$Vai 		= "Contato de : $Nome\n\nE-mail: $Email\n\nTelefone: $Fone\n\nMensagem: $Mensagem\n";
 
-/* DO NOT EDIT BELOW */
+if ($Nome != '')
+{
 
-/* use classes */
+	require_once("phpmailer/class.phpmailer.php");
 
-use Nette\Mail\Message,
-    Nette\Mail\SendmailMailer;
+	define('GUSER', 'contato@senhordev.com');	// <-- Insira aqui o seu GMail
+	define('GPWD', 'senhordev');		// <-- Insira aqui a senha do seu GMail
 
-/* require framework */
-
-require 'php/Nette/nette.phar';
-
-/* configure neccessary */
-
-$configurator = new Nette\Configurator;
-$configurator->setTempDirectory(__DIR__ . '/php/temp');
-$container = $configurator->createContainer();
-
-/* get post */
-
-$httpRequest = $container->getService('httpRequest');
-$httpResponse = $container->getService('httpResponse');
-
-$post = $httpRequest->getPost();
-
-if ($httpRequest->isAjax()) {
-    /* compose htmlContent */
-
-    $htmlContent .= '<table>';
-    foreach ($post as $key => $value) {
-
-	if (isset($fields[$key])) {
-	    $htmlContent .= "<tr><th>$fields[$key]</th><td>$value</td></tr>";
+	function smtpmailer($para, $de, $de_nome, $assunto, $corpo) { 
+		global $error;
+		$mail = new PHPMailer();
+		$mail->IsSMTP();		// Ativar SMTP
+		$mail->SMTPDebug = 0;		// Debugar: 1 = erros e mensagens, 2 = mensagens apenas
+		$mail->SMTPAuth = true;		// Autenticação ativada
+		//$mail->SMTPSecure = '';	// SSL REQUERIDO pelo GMail
+		$mail->Host = 'smtp.umbler.com';	// SMTP utilizado
+		$mail->Port = 587;  		// A porta 587 deverá estar aberta em seu servidor
+		$mail->Username = GUSER;
+		$mail->Password = GPWD;
+		$mail->SetFrom($de, $de_nome);
+		$mail->Subject = $assunto;
+		$mail->Body = $corpo;
+		$mail->AddAddress($para);
+		if(!$mail->Send()) {
+			$error = 'Mail error: '.$mail->ErrorInfo; 
+			return false;
+		} else {
+			$error = 'Mensagem enviada!';
+			return true;
+		}
 	}
-    }
-    $htmlContent .= '</table>';
 
-    /* compose html body */
-
-    $htmlBody = $htmlHeader . $htmlContent . $htmlFooter;
-
-    /* send email */
-
-    $mail = new Message;
-    $mail->setFrom($from)
-	    ->addTo($sendTo)
-	    ->setSubject($subject)
-	    ->setHtmlBody($htmlBody, FALSE);
-
-    $mailer = new SendmailMailer;
-    $mailer->send($mail);
-
-
-    $responseArray = array('type' => 'success', 'message' => $okMessage);
-
-    $httpResponse->setCode(200);
-    $response = new \Nette\Application\Responses\JsonResponse($responseArray);
-    $response->send($httpRequest, $httpResponse);
+	// Insira abaixo o email que irá receber a mensagem, o email que irá enviar (o mesmo da variável GUSER), 
+	//o nome do email que envia a mensagem, o Assunto da mensagem e por último a variável com o corpo do email.
+	if (smtpmailer('demitrius.quadros@outlook.com', 'contato@senhordev.com', 'Contato', 'Contato cliente', $Vai)) 
+	{
+		if (smtpmailer('jv.nicocelli@gmail.com', 'contato@senhordev.com', 'Contato', 'Contato cliente', $Vai))
+		{
+			Header("location:index.html"); // Redireciona para uma página de obrigado.
+		}
+	}
+	if (!empty($error)) echo $error;
 }
-
-
-
-
+?>
