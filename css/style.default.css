@@ -178,7 +178,8 @@ INTRO
   -o-background-size: cover;
   background-size: cover;
   -webkit-backface-visibility: hidden;
-}
+  }
+
 #intro .item .logo {
   margin-bottom: 120px;
   opacity: 0;
