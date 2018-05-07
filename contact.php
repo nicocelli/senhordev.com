@@ -42,7 +42,7 @@ if ($Nome != '')
 
 	// Insira abaixo o email que irá receber a mensagem, o email que irá enviar (o mesmo da variável GUSER), 
 	//o nome do email que envia a mensagem, o Assunto da mensagem e por último a variável com o corpo do email.
-	if (smtpmailer('demitrius.quadros@outlook.com', 'contato@senhordev.com', 'Contato', 'Contato cliente', $Vai)) 
+	if (smtpmailer('contato@senhordev.com', 'contato@senhordev.com', 'Contato', 'Contato cliente', $Vai)) 
 	{
 		if (smtpmailer('jv.nicocelli@gmail.com', 'contato@senhordev.com', 'Contato', 'Contato cliente', $Vai))
 		{
