@@ -14,7 +14,7 @@ if ($Nome != '')
 	require_once("phpmailer/class.phpmailer.php");
 
 	define('GUSER', 'contato@senhordev.com');	// <-- Insira aqui o seu GMail
-	define('GPWD', 'senhordev');		// <-- Insira aqui a senha do seu GMail
+	define('GPWD', 'contato@dev');		// <-- Insira aqui a senha do seu GMail
 
 	function smtpmailer($para, $de, $de_nome, $assunto, $corpo) { 
 		global $error;
